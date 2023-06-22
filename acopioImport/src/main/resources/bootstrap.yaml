@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: acopioImport
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    url: jdbc:mysql://localhost:3306/acopio
+    username: root
+    password: 11235813
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
