@@ -43,4 +43,29 @@ public class PorcentajesC {
         model.addAttribute("datas", datas);
         return "fileInformationPorcentajes";
     }
+
+    @GetMapping("/bonoGrasa")
+    public double bonoGrasa(@RequestParam String codigo){
+        ArrayList<PorcentajesE> porcentajes = porcentajesS.getPorcentajes();
+        int id = porcentajesS.obtenerCantArchivos(porcentajes);
+        PorcentajesE porcentaje = porcentajesS.obtenerPorCodigoYId(codigo, id);
+        return porcentajesS.bonificacionPorGrasa(porcentaje);
+    }
+
+    @GetMapping("/bonoSolido")
+    public double bonoSolido(@RequestParam String codigo){
+        ArrayList<PorcentajesE> porcentajes = porcentajesS.getPorcentajes();
+        int id = porcentajesS.obtenerCantArchivos(porcentajes);
+        PorcentajesE porcentaje = porcentajesS.obtenerPorCodigoYId(codigo, id);
+        return porcentajesS.bonificacionPorSolidos(porcentaje);
+    }
+
+    @GetMapping("/descuentoGrasa")
+    public Double descuentoGrasa(@RequestParam String codigo){
+        return porcentajesS.descuentoVariacionGrasa(codigo);
+    }
+    @GetMapping("/descuentoSolido")
+    public Double descuentoSolido(@RequestParam String codigo){
+        return porcentajesS.descuentoVariacionSolidos(codigo);
+    }
 }

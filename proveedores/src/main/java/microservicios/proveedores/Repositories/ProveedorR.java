@@ -11,4 +11,6 @@ public interface ProveedorR extends CrudRepository<ProveedorE, Long>{
 @Query("SELECT p FROM ProveedorE p WHERE p.code = :code")
     ProveedorE findByCode(@Param("code") String code);
 
+
+
 }
