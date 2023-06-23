@@ -47,7 +47,7 @@ public class PorcentajesC {
     @GetMapping("/bonoGrasa")
     public double bonoGrasa(@RequestParam String codigo){
         ArrayList<PorcentajesE> porcentajes = porcentajesS.getPorcentajes();
-        int id = porcentajesS.obtenerCantArchivos(porcentajes);
+        int id = porcentajesS.getIdLastArchivo(porcentajes);
         PorcentajesE porcentaje = porcentajesS.obtenerPorCodigoYId(codigo, id);
         return porcentajesS.bonificacionPorGrasa(porcentaje);
     }
@@ -55,7 +55,7 @@ public class PorcentajesC {
     @GetMapping("/bonoSolido")
     public double bonoSolido(@RequestParam String codigo){
         ArrayList<PorcentajesE> porcentajes = porcentajesS.getPorcentajes();
-        int id = porcentajesS.obtenerCantArchivos(porcentajes);
+        int id = porcentajesS.getIdLastArchivo(porcentajes);
         PorcentajesE porcentaje = porcentajesS.obtenerPorCodigoYId(codigo, id);
         return porcentajesS.bonificacionPorSolidos(porcentaje);
     }

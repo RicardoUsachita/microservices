@@ -25,7 +25,7 @@ public class PorcentajesS {
         return porcentajes;
     }
 
-    public int obtenerCantArchivos(ArrayList<PorcentajesE> porcentajes){
+    public int getIdLastArchivo(ArrayList<PorcentajesE> porcentajes){
         int cant = 0;
         ArrayList<Integer> aux = new ArrayList<>();
         for (PorcentajesE porcentaje:porcentajes){
@@ -41,7 +41,7 @@ public class PorcentajesS {
     public int obtenerSolidoActual(String codigo)
     {
         ArrayList<PorcentajesE> porcentajes = porcentajesR.findAll();
-        int id = obtenerCantArchivos(porcentajes);
+        int id = getIdLastArchivo(porcentajes);
         PorcentajesE porcentaje_Actual_Filtrado = porcentajesR.findByProvAndIdAr(codigo, id);
 
         return porcentaje_Actual_Filtrado.getSolidos();
@@ -50,7 +50,7 @@ public class PorcentajesS {
     public int obtenerSolidoAnterior(String codigo)
     {
         ArrayList<PorcentajesE> porcentajes = porcentajesR.findAll();
-        int id = obtenerCantArchivos(porcentajes);
+        int id = getIdLastArchivo(porcentajes);
         if(id == 1){
             return 0;
         }
@@ -62,7 +62,7 @@ public class PorcentajesS {
     public int obtenerGrasaActual(String codigo)
     {
         ArrayList<PorcentajesE> porcentajes = porcentajesR.findAll();
-        int id = obtenerCantArchivos(porcentajes);
+        int id = getIdLastArchivo(porcentajes);
         PorcentajesE porcentaje_Actual_Filtrado = porcentajesR.findByProvAndIdAr(codigo, id);
 
         return porcentaje_Actual_Filtrado.getGrasas();
@@ -71,7 +71,7 @@ public class PorcentajesS {
     public int obtenerGrasaAnterior(String codigo)
     {
         ArrayList<PorcentajesE> porcentajes = porcentajesR.findAll();
-        int id = obtenerCantArchivos(porcentajes);
+        int id = getIdLastArchivo(porcentajes);
         if(id == 1){
             return 0;
         }
@@ -120,7 +120,7 @@ public class PorcentajesS {
     public Double variacionGrasa(String proveedor){
 
         ArrayList<PorcentajesE> porcentajes = porcentajesR.findAll();
-        int id = obtenerCantArchivos(porcentajes);
+        int id = getIdLastArchivo(porcentajes);
         if(id==1){
             return 0.0;
         }
@@ -145,7 +145,7 @@ public class PorcentajesS {
 
     public Double variacionSolidos(String proveedor){
         ArrayList<PorcentajesE> porcentajes = porcentajesR.findAll();
-        int id = obtenerCantArchivos(porcentajes);
+        int id = getIdLastArchivo(porcentajes);
         if(id==1){
             return 0.0;
         }

@@ -17,4 +17,10 @@ public interface AcopioR extends CrudRepository<AcopioE, Integer> {
     @Query("SELECT c FROM AcopioE c WHERE c.id_quincena = (SELECT MAX(c.id_quincena) FROM AcopioE)")
     List<AcopioE> ultimaQuincena();
 
+    @Query("SELECT a FROM AcopioE a")
+    List<AcopioE> findAll();
+
+    @Query("SELECT a FROM AcopioE a WHERE a.proveedor = :codigo and a.id_quincena = :id_archivo ")
+    List<AcopioE> findByProvAndIdAr(@Param("codigo") String codigo, @Param("id_archivo") Integer id_archivo);
+
 }
