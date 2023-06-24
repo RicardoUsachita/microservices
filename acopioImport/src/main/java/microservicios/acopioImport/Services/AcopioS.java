@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AcopioS {
@@ -118,5 +120,13 @@ public class AcopioS {
         return (leche - lecheAnt)/lecheAnt;
     }
 
+    public Integer obtenerDias(List<AcopioE> quincena){
+        ArrayList<LocalDate> dias = new ArrayList<>();
+        for(AcopioE acopio : quincena){
+            dias.add(acopio.getFecha());
+        }
+        Set<LocalDate> diasUnicos = new HashSet<>(dias);
+        return diasUnicos.size();
+    }
 
 }
