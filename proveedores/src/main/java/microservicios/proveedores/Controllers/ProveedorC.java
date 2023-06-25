@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/proveedor")
 public class ProveedorC {
@@ -22,5 +24,14 @@ public class ProveedorC {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(proveedor);
+    }
+
+    @GetMapping("/proveedores")
+    public ResponseEntity<List<ProveedorE>> obtenerProveedores(){
+        List<ProveedorE> proveedores = proveedorS.obtenerProveedores();
+        if (proveedores.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(proveedores);
     }
 }

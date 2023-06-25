@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2fe31218-a170-4ef3-8002-e356b1d7dfb0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/eureka-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/planillaGenerate.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../config-service/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../eureka-service/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Controllers/PlanillaC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-service/src/main/java/microservicios/configservice/ConfigServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../config-service/src/main/java/microservicios/configservice/ConfigServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gatewayService/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-service/src/main/java/microservicios/eurekaservice/EurekaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-service/src/main/java/microservicios/eurekaservice/EurekaServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../valoresImport/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gatewayService/src/main/java/microservicios/gatewayService/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gatewayService/src/main/java/microservicios/gatewayService/GatewayServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gatewayService/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/PlanillaGenerateApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/PlanillaGenerateApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PagoS.java" beforeDir="false" afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PagoS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PlanillaS.java" beforeDir="false" afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PlanillaS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/Controllers/ProveedorC.java" beforeDir="false" afterPath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/Controllers/ProveedorC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/ProveedoresApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/ProveedoresApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valoresImport/src/main/java/microservicios/valoresImport/ValoresImportApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../valoresImport/src/main/java/microservicios/valoresImport/ValoresImportApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valoresImport/src/main/resources/application.properties" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2RgruoEObv1XiZxCgsus1cKCjCc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Documentos/CosasDeLaU/5Año/TINGESO/pep2/config-data",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fe31218-a170-4ef3-8002-e356b1d7dfb0" name="Changes" comment="" />
+      <created>1687682790863</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687682790863</updated>
+      <workItem from="1687682791859" duration="138000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

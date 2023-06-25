@@ -2,6 +2,7 @@ package microservicios.planillaGenerate.Services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import microservicios.planillaGenerate.Entities.PlanillaE;
 import microservicios.planillaGenerate.Models.AcopioM;
 import microservicios.planillaGenerate.Models.PorcentajesM;
 import microservicios.planillaGenerate.Models.ProveedorM;
@@ -20,6 +21,9 @@ import java.util.Set;
 public class PagoS {
     @Autowired
     PlanillaR planillaR;
+
+    @Autowired
+    PlanillaS planillaS;
 
     @Autowired
     ObjectMapper objectMapper;
@@ -55,7 +59,7 @@ public class PagoS {
         return proveedor;
     }
 
-    public void calculoPlanilla(String codigo){
+    public PlanillaE calculoPlanilla(String codigo){
         List<AcopioM> acopioActual = obtenerAcopioActual(codigo);
         List<AcopioM> acopioAnterior = obtenerAcopioAnterior(codigo);
         List<PorcentajesM> porcentajes = obtenerPorcentajes();
@@ -65,30 +69,53 @@ public class PagoS {
         PorcentajesM porcentajesPasada = obtenerPorcentaje(codigo,porcentajeId-1);
 
         ProveedorM proveedor = obtenerProveedor(codigo);
-        double kilos_leche = calculo_leche(acopioActual);
-        double promedio = kilos_leche/15 ;
-        double pagoPorLeche = obtenerPagoPorKilo(proveedor)*kilos_leche;
+        Double kilos_leche = calculo_leche(acopioActual);
+        Double promedio = kilos_leche/15 ;
+        Integer dias = obtenerDias(acopioActual);
+
+        //Pagos
+        Double pagoPorLeche = obtenerPagoPorKilo(proveedor)*kilos_leche;
+        Double pagoPorGrasa = bonificacionPorGrasa(porcentajesActual);
+        Double pagoPorSolidos = bonificacionPorSolidos(porcentajesActual);
+
+        Double sumaPagos = pagoPorLeche + pagoPorGrasa + pagoPorSolidos;
+        Double bonificacionFrecuencia = calcularBonificacion(acopioActual)*sumaPagos;
 
         //Variaciones
 
-        double variacionLeche = variacionLeche(acopioActual,acopioAnterior);
-        double variacionGrasa = variacionGrasa(porcentajesActual,porcentajesPasada);
-        double variacionSolidos = variacionSolidos(porcentajesActual,porcentajesPasada);
+        Double variacionLeche = variacionLeche(acopioActual,acopioAnterior);
+        Double variacionGrasa = variacionGrasa(porcentajesActual,porcentajesPasada);
+        Double variacionSolidos = variacionSolidos(porcentajesActual,porcentajesPasada);
 
         //Descuentos
 
-        Integer dias = obtenerDias(acopioActual);
+        Double descuentoLeche = descuento_leche(variacionLeche)*sumaPagos;
+        Double descuentoGrasa = descuentoGrasa(variacionGrasa)*sumaPagos;
+        Double descuentoSolidos = descuentoSolidos(variacionSolidos)*sumaPagos;
 
+        Double pagoTotal = sumaPagos + bonificacionFrecuencia - descuentoLeche - descuentoGrasa - descuentoSolidos;
+        Double pagoFinal;
 
+        if(proveedor.getRetencion() == 1){
+            pagoFinal = pagoFinal(pagoTotal);
+        }else {
+            pagoFinal = pagoTotal;
+        }
+        double retencion = pagoFinal - pagoTotal;
 
+        PlanillaE planilla = planillaS.crearPlanilla(LocalDate.now(), codigo, proveedor.nombre, kilos_leche, dias, promedio, variacionLeche,
+                porcentajesActual.grasas, variacionGrasa, porcentajesActual.solidos, variacionSolidos, pagoPorLeche, pagoPorGrasa,
+                pagoPorSolidos, bonificacionFrecuencia, descuentoLeche, descuentoGrasa, descuentoSolidos, pagoTotal, retencion, pagoFinal);
 
+        planillaR.save(planilla);
+        return planilla;
     }
 
-    public double calculo_leche(List<AcopioM> acopios){
+    public Double calculo_leche(List<AcopioM> acopios){
         return acopios.stream().mapToDouble(AcopioM::getKg_leche).sum();
     }
 
-    public double obtenerPagoPorKilo(ProveedorM proveedor) {
+    public Double obtenerPagoPorKilo(ProveedorM proveedor) {
         String categoria = proveedor.getCategoria();
         double pagoPorKilo = 0.0;
         if ("A".equals(categoria)) {
@@ -103,6 +130,30 @@ public class PagoS {
         return pagoPorKilo;
     }
 
+    public Double calcularBonificacion(List<AcopioM> acopiosQuincenales) {
+
+        int enviosManana = 0;
+        int enviosTarde = 0;
+
+        for (AcopioM acopio : acopiosQuincenales) {
+            if (acopio.getTurno().equals("M")) {
+                enviosManana++;
+            } else if (acopio.getTurno().equals("T")) {
+                enviosTarde++;
+            }
+        }
+
+        if (enviosManana > 10 && enviosTarde > 10) {
+            return 0.2; // Bonificación del 20%
+        } else if (enviosManana > 10) {
+            return 0.12; // Bonificación del 12%
+        } else if (enviosTarde > 10) {
+            return 0.08; // Bonificación del 8%
+        } else {
+            return 0.0; // Sin bonificación
+        }
+    }
+
     public Integer getIdLastArchivo(List<PorcentajesM> porcentajes){
         Integer cant = 0;
         ArrayList<Integer> aux = new ArrayList<>();
@@ -115,8 +166,8 @@ public class PagoS {
         return cant;
     }
 
-    public double bonificacionPorGrasa(PorcentajesM porcentajes){
-        double grasas = porcentajes.getGrasas();
+    public Double bonificacionPorGrasa(PorcentajesM porcentajes){
+        Integer grasas = porcentajes.getGrasas();
         if(grasas >= 46.0){
             return 120.0;
         }else if(grasas >= 21.0) {
@@ -126,8 +177,8 @@ public class PagoS {
         }
     }
 
-    public double bonificacionPorSolidos(PorcentajesM porcentajes){
-        double solidos = porcentajes.getSolidos();
+    public Double bonificacionPorSolidos(PorcentajesM porcentajes){
+        Integer solidos = porcentajes.getSolidos();
         if(solidos >= 36.0){
             return 150.0;
         }else if(solidos >= 19.0) {
@@ -139,17 +190,17 @@ public class PagoS {
         }
     }
 
-    public double variacionLeche(List<AcopioM> acopioActual,List<AcopioM> acopioPasada){
-        double lecheActual = calculo_leche(acopioActual);
-        double lechePasada = calculo_leche(acopioPasada);
+    public Double variacionLeche(List<AcopioM> acopioActual,List<AcopioM> acopioPasada){
+        Double lecheActual = calculo_leche(acopioActual);
+        Double lechePasada = calculo_leche(acopioPasada);
         return (lecheActual - lechePasada)/lechePasada;
     }
-    public double variacionGrasa(PorcentajesM porcentajesActual,PorcentajesM porcentajesPasada){
+    public Double variacionGrasa(PorcentajesM porcentajesActual,PorcentajesM porcentajesPasada){
         double grasaActual = porcentajesActual.getGrasas();
         double grasaPasada = porcentajesPasada.getGrasas();
         return (grasaActual - grasaPasada)/grasaPasada;
     }
-    public double variacionSolidos(PorcentajesM porcentajesActual,PorcentajesM porcentajesPasada){
+    public Double variacionSolidos(PorcentajesM porcentajesActual,PorcentajesM porcentajesPasada){
         double solidosActual = porcentajesActual.getSolidos();
         double solidosPasada = porcentajesPasada.getSolidos();
         return (solidosActual - solidosPasada)/solidosPasada;
@@ -166,7 +217,7 @@ public class PagoS {
             return 0.0;
         }
     }
-    public Double descuentoVariacionGrasa(double variacion){
+    public Double descuentoGrasa(double variacion){
         if(variacion <= -0.41){
             return 0.3;
         }else if(variacion <= -0.26){
@@ -178,7 +229,7 @@ public class PagoS {
         }
     }
 
-    public Double descuentoVariacionSolidos(double variacion){
+    public Double descuentoSolidos(double variacion){
         if(variacion <= -0.36){
             return 0.45;
         }else if(variacion <= -0.13){
