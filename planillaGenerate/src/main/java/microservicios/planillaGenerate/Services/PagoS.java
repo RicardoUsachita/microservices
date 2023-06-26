@@ -54,7 +54,7 @@ public class PagoS {
         return porcentaje;
     }
     public ProveedorM obtenerProveedor(String codigo){
-        ProveedorM proveedor = restTemplate.getForObject("http://proveedor/"+ codigo, ProveedorM.class);
+        ProveedorM proveedor = restTemplate.getForObject("http://proveedor-service/"+ codigo, ProveedorM.class);
         System.out.println(proveedor);
         return proveedor;
     }

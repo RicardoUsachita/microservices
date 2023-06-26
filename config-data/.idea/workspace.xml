@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2fe31218-a170-4ef3-8002-e356b1d7dfb0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/eureka-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/planillaGenerate.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../config-service/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../eureka-service/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Controllers/PlanillaC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-service/src/main/java/microservicios/configservice/ConfigServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../config-service/src/main/java/microservicios/configservice/ConfigServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../gatewayService/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eureka-service/src/main/java/microservicios/eurekaservice/EurekaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-service/src/main/java/microservicios/eurekaservice/EurekaServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eureka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../valoresImport/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gatewayService/src/main/java/microservicios/gatewayService/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gatewayService/src/main/java/microservicios/gatewayService/GatewayServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gatewayService/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/PlanillaGenerateApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/PlanillaGenerateApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acopioImport.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proveedores.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valoresImport.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planillaGenerate.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/planillaGenerate.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../eureka-service/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-service/src/main/resources/bootstrap.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PagoS.java" beforeDir="false" afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PagoS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PlanillaS.java" beforeDir="false" afterPath="$PROJECT_DIR$/../planillaGenerate/src/main/java/microservicios/planillaGenerate/Services/PlanillaS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../planillaGenerate/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/Controllers/ProveedorC.java" beforeDir="false" afterPath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/Controllers/ProveedorC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/ProveedoresApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../proveedores/src/main/java/microservicios/proveedores/ProveedoresApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valoresImport/src/main/java/microservicios/valoresImport/ValoresImportApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../valoresImport/src/main/java/microservicios/valoresImport/ValoresImportApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valoresImport/src/main/resources/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +38,10 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/Documentos/CosasDeLaU/5Año/TINGESO/pep2/config-data",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -57,6 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687682790863</updated>
       <workItem from="1687682791859" duration="138000" />
+      <workItem from="1687815463151" duration="3406000" />
     </task>
     <servers />
   </component>
