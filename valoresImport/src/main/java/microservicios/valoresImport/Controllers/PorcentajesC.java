@@ -25,12 +25,12 @@ public class PorcentajesC {
 
 
 
-    @PostMapping("/guardar")
-    public String subirPorcentajes(@RequestParam("file") MultipartFile file, RedirectAttributes atributos) {
+    @PostMapping()
+    public ResponseEntity<Boolean> subirPorcentajes(@RequestParam("file") MultipartFile file, RedirectAttributes atributos) {
         subirDataS.guardar(file);
         atributos.addFlashAttribute("message", "Archivo cargado correctamente");
         subirDataS.leerCsv("Porcentajes.csv");
-        return "redirect:/porcentajes";
+        return ResponseEntity.ok(true);
     }
 
     @GetMapping("/porcentajes")

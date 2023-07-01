@@ -4,10 +4,7 @@ import microservicios.proveedores.Entities.ProveedorE;
 import microservicios.proveedores.Services.ProveedorS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +30,19 @@ public class ProveedorC {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(proveedores);
+    }
+    @PostMapping("/nuevo-proveedor")
+    public ResponseEntity<Boolean> nuevoProveedor(@RequestParam("codigo") String codigo,
+                                 @RequestParam("nombre") String nombre,
+                                 @RequestParam("categoria") String categoria,
+                                 @RequestParam("retencion") Integer retencion){
+
+        ProveedorE proveedor = new ProveedorE();
+        proveedor.setCode(codigo);
+        proveedor.setNombre(nombre);
+        proveedor.setCategoria(categoria);
+        proveedor.setRetencion(retencion);
+        proveedorS.guardarProveedor(proveedor);
+        return ResponseEntity.ok(true);
     }
 }

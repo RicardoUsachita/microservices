@@ -21,12 +21,13 @@ public class AcopioC {
     @Autowired
     SubirDataS subirDataS;
 
-    @PostMapping("/acopio")
-    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes){
+    @PostMapping()
+    public ResponseEntity<Boolean> uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes){
         subirDataS.guardar(file);
         attributes.addFlashAttribute("message","Archivo cargado correctamente");
         subirDataS.leerCsv("Acopio.csv");
-        return "redirect:/acopio";
+        return ResponseEntity.ok(true);
+
     }
 
     @GetMapping("/fileInformationAcopio")

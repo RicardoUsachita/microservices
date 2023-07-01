@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80aac18d-97db-4fba-a7eb-a3cc13825523" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../acopioImport/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../acopioImport/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eureka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../eureka-service/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../eureka-service/src/main/resources/bootstrap.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gatewayService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gatewayService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../planillaGenerate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../planillaGenerate/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../proveedores/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../proveedores/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valoresImport/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../valoresImport/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valoresImport/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../valoresImport/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +28,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Documentos/CosasDeLaU/5Año/TINGESO/pep2/front",
+    "last_opened_file_path": "D:/Documentos/CosasDeLaU/5Año/TINGESO/pep2/proveedores",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1688010471690</updated>
       <workItem from="1688010478255" duration="633000" />
+      <workItem from="1688176178603" duration="611000" />
     </task>
     <servers />
   </component>

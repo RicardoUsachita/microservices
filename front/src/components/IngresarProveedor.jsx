@@ -80,7 +80,7 @@ class IngresarProveedorComponent extends Component {
         }
         else
         {
-            fetch(`http://localhost:8080/proveedor/ingresar?codigo=${this.state.codigo}&nombre=${this.state.nombre}&categoria=${this.state.categoria}&retencion=${this.state.retencion}`,
+            fetch(`http://localhost:8080/proveedor/nuevo-proveedor?codigo=${this.state.codigo}&nombre=${this.state.nombre}&categoria=${this.state.categoria}&retencion=${this.state.retencion}`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
