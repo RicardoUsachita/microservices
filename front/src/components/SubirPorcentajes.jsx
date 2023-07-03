@@ -4,9 +4,9 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import Form from 'react-bootstrap/Form';
 import styles from '../style.module.css';
-import SubirPorcentajeService from '../services/SubirPorcentajeService';
+import SubirPorcentajeService from '../services/SubirPorcentajesS';
 
-class subirPorcentajeComponent extends Component {
+class SubirPorcentajeComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -74,4 +74,4 @@ class subirPorcentajeComponent extends Component {
     }
 }
 
-export default subirPorcentajeComponent;
+export default SubirPorcentajeComponent;

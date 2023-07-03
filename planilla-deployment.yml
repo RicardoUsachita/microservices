@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: planilla-deployment
+  labels:
+    app: planilla-deployment
+spec:
+  selector:
+    matchLabels:
+      app: planilla-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: planilla-deployment
+    spec:
+      containers:
+        - name: planilla
+          image: kubernetes-planilla
+          ports:
+            - containerPort: 8085

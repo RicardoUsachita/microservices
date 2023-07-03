@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import SubirAcopioService from '../services/SubirAcopioService';
+import SubirAcopioService from '../services/SubirAcopioS';
 import Form from 'react-bootstrap/Form';
 import styles from '../style.module.css';
 

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proveedores-deployment
+  labels:
+    app: proveedores-deployment
+spec:
+  selector:
+    matchLabels:
+      app: proveedores-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: proveedores-deployment
+    spec:
+      containers:
+        - name: proveedores
+          image: aldo564/kubernetes-proveedores
+          ports:
+            - containerPort: 8082

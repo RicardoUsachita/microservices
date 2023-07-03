@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valores-deployment
+  labels:
+    app: valores-deployment
+spec:
+  selector:
+    matchLabels:
+      app: valores-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: valores-deployment
+    spec:
+      containers:
+        - name: valores
+          image: kubernetes-valores
+          ports:
+            - containerPort: 8084
