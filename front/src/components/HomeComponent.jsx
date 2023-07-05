@@ -1,45 +1,54 @@
 import React, {Component} from 'react';
-
+import styles from '../style.module.css';
 class HomeComponent extends Component {
     
     render() {
+
+        
+        const logo = "https://i.ibb.co/WzzwJzW/Logo-Lechera.png";
         return (
-            <div>
-            <header>
-                <title>MilkStgo</title>
-            </header>
-            <div>
-                <h1>MilkStgo 2023</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/listar-proveedores" class="cta-button"><i class="fas fa-users"></i> Consultar Proveedores</a></li>
-                    <li><a href="/acopio" class="cta-button"><i class="fas fa-file-csv"></i> Subir Acopio</a></li>
-                    <li><a href="/porcentajes" class="cta-button"><i class="fas fa-percent"></i>Subir Porcentajes</a></li>
-                    <li><a href="/planilla" class="cta-button"><i class="fas fa-table"></i> Generar Planilla</a></li>
-                </ul>
-            </nav>
-            <main>
-                <div>
+            
+            <div >
+                <div style={{ display: "flex", justifyContent: "center"}}>
                     <table> 
                         <tbody>
                             <tr>
-                                <th>
-                                    <h2>¡Bienvenidos a MilkStago</h2>
-                                    
-                                </th>
-                                <th>
-                                    <a><img src="https://i.ibb.co/rQWMfbv/milkstgo.png" alt="milkstgo"/> </a>
-                                </th>
+                                
+                                <h2 style={{display: "flex", justifyContent: "center"}}>¡Bienvenidos!</h2>
+                                <a><img src={logo} alt="Logo-Lechera" border="0" /></a>
+                                
                             </tr>
                         </tbody>
                     </table>
+                </div>      
+                <div>
+                    <h1 style={{display: "flex", justifyContent: "center"}}>MilkStgo 2023</h1>
                 </div>
-            </main>
-            <footer>
-                <p>Derechos reservados MilkStgo</p>
-            </footer>
-        </div>
+                
+                <nav>
+                    <div>
+                        <button className = {styles.navbutton}>
+                            <a href="/verProveedores">Ver Proveedores</a>
+                        </button>
+                        <button className = {styles.navbutton}>
+                            <a href="/subirAcopio">Importar datos de acopio</a>
+                        </button>
+                        <button className = {styles.navbutton}>
+                            <a href="/subirPorcentaje">Importar datos de porcentajes de grasa y solido</a>
+                        </button>
+                        <button  className = {styles.navbutton}>
+                            <a href="/generarPlanilla">Generar planilla de pago</a>
+                        </button>
+                    </div>
+
+                </nav>
+
+                
+                <footer>
+                    <p>Derechos reservados MilkStgo</p>
+                </footer>
+            </div>
+            
         );
     }
 }

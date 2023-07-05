@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../App.css';
+
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
@@ -107,10 +107,8 @@ class IngresarProveedorComponent extends Component {
     render() {
         return (
             <div>
-                <head>
-                    <title>Proveedores</title>
-                </head>
-                <header>
+                
+                <header style={{backgroundColor: "#59a3ff"}}>
                     <h1>Proveedores</h1>    
                 </header>
                 <nav>
@@ -145,9 +143,9 @@ class IngresarProveedorComponent extends Component {
                                 </li>
                                 <li>
                                 <label>Retencion</label>
-                                    <input type="radio" name="retencion" value="true" onChange={this.changeRetencionProveedor}/> Si
+                                    <input type="radio" name="retencion" value={1} onChange={this.changeRetencionProveedor}/> Si
                                     {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-                                    <input type="radio" name="retencion" value="false" onChange={this.changeRetencionProveedor}/> No
+                                    <input type="radio" name="retencion" value={0} onChange={this.changeRetencionProveedor}/> No
                                 </li>
                                 <li class="btn-secondary-container">
                                     <input class="btn-secondary" type="submit" value="Ingresar proveedor"/>

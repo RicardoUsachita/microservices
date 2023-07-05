@@ -29,7 +29,7 @@ spring:
           predicates:
             - Path=/acopio/**
         - id: planillaGenerate
-          uri: lb://planilla-service
+          uri: lb://planillaGenerate
           predicates:
             - Path=/planilla/**
         - id: valoresImport
@@ -37,6 +37,6 @@ spring:
           predicates:
             - Path=/porcentajes/**
         - id: proveedores
-          uri: lb://proveedores-service
+          uri: lb://proveedores
           predicates:
             - Path=/proveedor/**

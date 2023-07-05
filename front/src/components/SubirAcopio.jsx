@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../App.css';
+
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import SubirAcopioService from '../services/SubirAcopioS';
@@ -62,7 +62,7 @@ class SubirAcopioComponent extends Component {
                     </ul>
                     </nav>
                     <div>
-                    <h1>Cargar archivo de acopio</h1>
+                    <h1 style={{marginBottom: "20px"}}>Cargar archivo de acopio</h1>
                     <Form.Group className={styles.fileuploadcontainer} controlId="formFileLg">
                         <Form.Control type="file" size="lg" 
                         onChange={this.onFileChange} 

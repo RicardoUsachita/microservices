@@ -21,7 +21,7 @@ public class SubirDataS {
     @Autowired
     PorcentajesR porcentajesR;
 
-    Integer ID_archivo = 1;
+    Integer ID_archivo = 2;
 
     private final Logger log = LoggerFactory.getLogger(SubirDataS.class);
     public String guardar(MultipartFile file){

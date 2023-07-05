@@ -1,77 +1,97 @@
 import React, {Component} from 'react';
-import '../App.css';
+import styles from '../style.module.css';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import Form from 'react-bootstrap/Form';
-import styles from '../style.module.css';
-import SubirPorcentajeService from '../services/SubirPorcentajesS';
 
-class subirPorcentajeComponent extends Component {
 
-    constructor(props) {
+
+class GenerarPlanillaComponent extends Component {
+    constructor(props){
         super(props);
         this.state = {
-            file: null,
-        };
-        this.onFileChange = this.onFileChange.bind(this);
+            proveedores: [],
+            redirect: false,
+        }
+    }
+    
+    componentDidMount()
+    {
+        const json = fetch("http://localhost:8080/proveedor/obtener")
+        .then((response) => response.json())
+        .then((data) => this.setState({ proveedores: data }));
     }
 
-    onFileChange(event) {
-        this.setState({ file: event.target.files[0] });
+    changeCodigo = event => {
+        this.setState({
+            codigo: event.target.value
+        });
     }
 
-    onFileUpload = event => {
+    generarPlanilla = async event => {
         event.preventDefault();
         const MySwal = withReactContent(Swal);
-        MySwal.fire({
-            title: <strong>¿Está seguro de que desea cargar el archivo csv?</strong>,
-            html: <i>Tenga en cuenta que el archivo solo será cargado si su extension es '.csv' y si su formato es correcto.</i>,
-            icon: 'warning',
-            showConfirmButton: true,
-            confirmButtonText: 'Si',
-            confirmButtonColor: '#00FF00',
-            showDenyButton: true,
-            denyButtonText: 'No'
-        }).then(respuesta=>{
-            if(respuesta.isConfirmed){
-                MySwal.fire({title: <strong> Archivo cargado correctamente!</strong>, icon: "success", timer: "3000"});
-                const formData = new FormData();
-                formData.append("file", this.state.file);
-                SubirPorcentajeService.CargarArchivo(formData).then((res) => {});
-            }
-            else{
-                MySwal.fire({title: <strong> Archivo no cargado</strong>, icon: "error"});
-            }
-        });
-    };
 
+        const flag = await fetch("http://localhost:8080/planilla/generar/" + this.state.codigo)
+        .then((response) => response.json())
+
+        console.log("flag: " + flag);
+
+        if(flag == true)    
+        {
+            this.setState({redirect: true})
+            console.log("Redirect: " + this.state.redirect);
+            window.location.href = "/verPlanilla";
+        }
+        else
+        {
+            MySwal.fire({
+                title: <strong>Error</strong>,
+                html: <i>No se han encontrado datos suficientes para generar una planilla</i>,
+                icon: 'error'
+            });
+        }
+    }
+
+    redireccionar = () => {
+        if(this.state.redirect){
+            window.location.href = "/verPlanilla";
+        }
+    }
 
     render() {
         return (
             <div>
                 <div>
                     <header>
-                        <h1>Subir archivo de porcentajes de solidos y grasa</h1>
+                        <h1>Planillas de pago</h1>
                     </header>
                     <nav>
-                    <ul>
-                        <li><a href="/">Volver al menú principal</a></li>
-                    </ul>
+                        <ul>
+                            <li><a href="/">Volver al menú principal</a></li>
+                        </ul>
                     </nav>
-                    <div>
-                    <h1>Cargar archivo de porcentajes</h1>
-                    <Form.Group className={styles.fileuploadcontainer} controlId="formFileLg">
-                        <Form.Control type="file" size="lg" 
-                        onChange={this.onFileChange} 
-                        className={styles.fileuploadbutton}/>
-                    </Form.Group>
-                    <input className={styles.fileuploadbutton}
-                         type="submit" value="Cargar el archivo a la Base de Datos" onClick={this.onFileUpload}></input>
-                    </div>
+                    <form onSubmit={this.generarPlanilla}>
+                        <br/>
+                        <h3>Seleccione al proveedor para generar planilla de pago</h3>
+                        <select name="codigo" onChange={this.changeCodigo}>
+                            <option value="">Seleccione un codigo</option>
+                            {this.state.proveedores.map((proveedor) =>(
+                                <option key={proveedor.ID_PROVEEDOR}>
+                                    {proveedor.codigo}
+                                </option>
+                            ))}
+                        </select>
+                        <div> 
+                            <button className={styles.fileuploadbutton}> Cargar planilla </button>    
+                        </div>
+                    </form>
+                    <footer>
+                        <p>Derechos reservados MilkStgo</p>
+                    </footer>
                 </div>
             </div>
         );
     }
 }
 
-export default subirPorcentajeComponent;
+export default GenerarPlanillaComponent;

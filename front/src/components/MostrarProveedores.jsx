@@ -12,7 +12,7 @@ class verProveedoresComponent extends Component {
     
     componentDidMount()
     {
-        fetch("http://localhost:8080/proveedor/obtener")
+        fetch("http://localhost:8080/proveedor/proveedores")
         .then((response) => response.json())
         .then((data) => this.setState({ proveedores: data }));
     }
@@ -21,7 +21,7 @@ class verProveedoresComponent extends Component {
     render() {
         return (
             <div>
-                <header>
+                <header style={{backgroundColor: "#59a3ff"}}>
                     <h1>Proveedores</h1>
                 </header>
                 <nav>
@@ -31,7 +31,7 @@ class verProveedoresComponent extends Component {
                     </ul>
                 </nav>
                 <div>
-                    <h1>Lista de proveedores</h1>
+                    <h1 style={{display: "flex", justifyContent: "center", marginTop: "20px", marginBottom: "20px"}}>Lista de proveedores</h1>
                     <table className={styles.contentTable}>
                         <thead>
                             <tr>
